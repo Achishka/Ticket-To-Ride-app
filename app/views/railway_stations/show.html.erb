@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Станция</strong>
+  <div style="font-size: 30px;">
+    <%= @railway_station.title %>
+  </div>
+</p>
+
+<br>
+<p><%= @railway_station.routes.any? ? 'Входит в маршруты:' : 'Эта станция пока не входит ни в один маршрут'%></p>
+
+<% @trains.each do |train| %>
+  <p> <%= train.number %></p>
+<% end %>
+<%= link_to 'Edit', edit_railway_station_path(@railway_station) %> |
+<%= link_to 'Back', railway_stations_path %>

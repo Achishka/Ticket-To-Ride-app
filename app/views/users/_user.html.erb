@@ -1,0 +1,10 @@
+<div style="border: solid 1px;"
+<p><i> <%= user.username %> </i></p>
+<p>Билеты пользователя: (<%= user.tickets.count %>)</p>
+<% user.tickets.each do |ticket| %>
+  <strong><p>id билета - <%= ticket.id %> </p></strong>
+<% end %>
+
+<%= link_to 'Посмотреть', user_path(user) %>
+<%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Вы уверены?' } %>
+</div>

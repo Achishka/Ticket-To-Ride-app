@@ -1,0 +1,18 @@
+<h1>Application is started!</h1>
+<%= link_to 'Cписок станций', railway_stations_path %>
+<%= link_to 'Cписок поездов', trains_path %>
+<%= link_to 'Cписок маршрутов', routes_path %>
+<%= link_to 'Cписок пользователей', users_path %>
+
+<br><br>
+
+<% @railway_stations.each do |station| %>
+  <br><b style="font-size: 20px;">
+    <%= link_to station.title, railway_station_path(station) %>
+  </b><br>
+<% end %>
+
+<p>Cписок поездов:</p>
+<table>
+<%= render @trains %>
+</table>

@@ -1,0 +1,35 @@
+<%= form_with(model: resource, local: true) do |form| %>
+  <% if resource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+
+      <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field">
+<% if @railway_station %>  
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :resource_title %>
+<% elsif @train %>
+    <%= form.label :number %>
+    <%= form.number_field :number, id: :train_number %>
+
+    <%= form.label :сurrent_station, 'На станции' %>
+    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+
+    <%= form.label :route, 'Маршрут' %>
+    <%= form.collection_select :route_id, Route.all, :id, :name %>
+<% elsif @route %>
+    <%= form.text_field :name %>
+<% end %>
+</div>   
+
+  <div class="actions">
+    <%= form.submit "#{resource.new_record? ? 'Добавить' : 'Применить изменения'}"%>
+  </div>
+<% end %>

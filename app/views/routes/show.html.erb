@@ -1,0 +1,8 @@
+<h2>Маршрут '<%=@route.name%>'</h2>
+<p><%= link_to 'Редактировать', edit_route_path(@route) %></p>
+<p><%= link_to 'Удалить', route_path(@route), method: :delete, data: {confirm: 'Удалить маршрут?'} %>
+<br>
+<p><%= link_to 'Все маршруты', routes_path %></p>
+
+<h3>Поезда маршрута:</h3>
+<%= render @route.trains %>

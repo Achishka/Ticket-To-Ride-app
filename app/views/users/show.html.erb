@@ -1,0 +1,8 @@
+<p>
+  <strong><%= @user.username %></strong>
+</p>
+<p>
+  <% @user.tickets.each do |ticket| %>
+    <p>Билет с id <%= ticket.id %></p>
+  <% end %>
+</p>  

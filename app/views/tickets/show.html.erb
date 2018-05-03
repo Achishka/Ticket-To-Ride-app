@@ -1,0 +1,7 @@
+<h1><strong>Квитанция <%= @ticket.id %></strong></h1>
+
+<h2><p>
+  Билет на поезд № <%= @ticket.train.number %> для пользователя <%= @ticket.user.username %>
+  <p>От станции <%= @ticket.first_station %></p>
+  <p>До станции <%= @ticket.last_station %></p>
+</p></h2>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Номер поезда:</strong>
+  <%= @train.number %>
+  <p>В данный момент поезд находится на станции: <%= @train.current_station.title %></p>
+
+  <% if @train.route %>
+    <p> Поезд следует маршруту: <%= @train.route.name %> </p>
+  <% else %>
+    <p> У данного поезда не назначен маршрут,
+      <%= link_to 'назначить', edit_train_path(@train) %>
+    </p>  
+  <% end %>
+      
+  <% if @train.tickets.any? %>
+  <p><strong>Проданные билеты:</strong></p>
+  <% @train.tickets.each do |ticket|%>
+    <p>Номер билета: <%= ticket.id %></p>
+    <p>Место:<%= ticket.place_number %></p>
+    <p><%= ticket.first_station %> - <%= ticket.last_station %></p>
+    <%= link_to 'Удалить билет', ticket_path(ticket), method: :delete, data: {confirm: 'Вы уверены, что хотите удалить этот билет?'} %>
+  <% end %>
+  <% else %>
+  <p>На этот поезд не продано билетов</p>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_train_path(@train) %> |
+<%= link_to 'Back', trains_path %>
