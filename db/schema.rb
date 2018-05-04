@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180502154149) do
 
   create_table "tickets", force: :cascade do |t|
     t.integer "place_number"
-    t.string "carrige_number"
+    t.integer "carrige_number"
     t.string "last_station"
     t.string "first_station"
     t.integer "train_id"
