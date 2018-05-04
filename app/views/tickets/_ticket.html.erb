@@ -1,0 +1,9 @@
+<strong><p><%= ticket.id %></p></strong>
+<p>Билет от станции: <%= ticket.first_station %> - <%= ticket.last_station %></p>
+
+<p>Место: <%= ticket.place_number %></p>
+<p>Номер вагона: <%= ticket.carrige_number %></p>
+<p>Приобрёл пользователь: <%= ticket.user.username %></p>
+
+<%= link_to 'Удалить билет', ticket_path(ticket), method: :delete, data: {confirm: "Удалить билет № #{ticket.id} ?"} %>
+<%= link_to 'Изменить билет', edit_ticket_path(ticket) %>
