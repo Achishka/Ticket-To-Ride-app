@@ -6,6 +6,7 @@ class CreateCarriages < ActiveRecord::Migration[5.1]
       t.integer :top_seats
       t.integer :side_bottom_seats
       t.integer :side_top_seats
+      t.integer :chair_seats
       
       t.belongs_to :train
       

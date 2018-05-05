@@ -1,3 +1,3 @@
 class EcoCarriage < Carriage
-  validates :side_bottom_seats, :side_top_seats, presence: true
+  validates :bottom_seats, :top_seats, :side_bottom_seats, :side_top_seats, presence: true
 end
