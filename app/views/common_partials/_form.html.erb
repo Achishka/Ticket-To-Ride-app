@@ -26,6 +26,8 @@
     <%= form.collection_select :route_id, Route.all, :id, :name %>
 <% elsif @route %>
     <%= form.text_field :name %>
+    <%= form.label :railway_station_ids, "Список станций" %>
+    <%= form.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
 <% elsif @ticket %>
     <%= form.label :to_train, 'На поезд №' %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
@@ -43,7 +45,7 @@
     <%= form.number_field :carrige_number, id: :carrige_number %>
 
     <%= form.label :place_number, 'Место:' %>
-    <%= form.number_field :place_number, id: :place_number %>
+    <%= form.number_field :place_number, id: :place_number %> 
 <% end %>
 </div>   
 

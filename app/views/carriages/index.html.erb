@@ -1,0 +1,9 @@
+<%= link_to 'Добавить вагон', new_carriage_path %>
+<% @carriages.each do |carriage| %>
+  <p>
+    Id: <%= carriage.id %>, 
+    Тип: <%= carriage.type %>
+  </p>
+  <p> Нижних мест <%= carriage.bottom_seats %> </p>
+  <p> Верхних мест <%= carriage.top_seats %> </p>
+<% end %>

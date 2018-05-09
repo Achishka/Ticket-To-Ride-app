@@ -6,14 +6,25 @@
   <p>В данный момент поезд находится на станции: <%= @train.current_station.title %></p>
 
   <% if @train.route %>
-    <p> Поезд следует маршруту: <%= @train.route.name %> </p>
+    <p> Поезд следует маршруту: <%= link_to @train.route.name, route_path(@train.route) %> </p>
   <% else %>
     <p> У данного поезда не назначен маршрут,
       <%= link_to 'назначить', edit_train_path(@train) %>
     </p>  
   <% end %>
-      
+
+  <% if @train.carriages.any? %>
+    <p>Вагонов: <strong><%= @train.carriages.count %></strong></p>
+    <p>Плацкартных: <strong><%= @train.carriages.eco.count %></strong></p>
+    <p>Купе: <strong><%= @train.carriages.coupe.count %></strong></p>
+    <p>Спальных: <strong><%= @train.carriages.eco.count %></strong></p>
+    <p>Сидячих: <strong><%= @train.carriages.sleep.count %></strong></p>
+  <% else %>
+    <p>У данного поезда нет вагонов</p>
+  <% end %>
+
   <% if @train.tickets.any? %>
+  <p>Продано билетов: <strong><%= @train.tickets.count %></strong></p>
   <p><strong>Проданные билеты:</strong></p>
   <% @train.tickets.each do |ticket|%>
     <p>Номер билета: <%= ticket.id %></p>

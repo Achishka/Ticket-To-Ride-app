@@ -1,0 +1,20 @@
+<%=form_for @carriage do |f| %>
+  <div class="form-control">
+    <%= f.label :bottom_seats, 'Колличество нижних мест' %>
+    <%= f.number_field :bottom_seats %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :bottom_seats, 'Колличество верхних мест' %>
+    <%= f.number_field :top_seats %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :type, 'Тип вагона' %>
+    <%= f.select(:type, options_for_select([['Плацкартный вагон', 'EcoCarriage'], ['Купейный вагон', 'CoupeCarriage']])) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "#{@carriage.new_record? ? 'Добавить вагон' : 'Применить изменения'}"%>
+  </div>
+<% end %>
