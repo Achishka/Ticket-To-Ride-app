@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position]
 
   # GET /railway_stations
   # GET /railway_stations.json
@@ -61,6 +61,14 @@ class RailwayStationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # Coustom
+  def update_position
+    @route = Route.find(params[:route_id])
+    @railway_station.update_position(@route, params[:position])
+    redirect_to @route
+  end  
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

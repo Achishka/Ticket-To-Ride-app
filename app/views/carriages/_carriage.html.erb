@@ -1,0 +1,6 @@
+<div style="border: solid 1px;"
+<p><i> <%= carriage.id %> </i></p>
+
+<%= link_to 'Посмотреть', carriage_path(carriage) %>
+<%= link_to 'Удалить', carriage, method: :delete, data: { confirm: 'Вы уверены?' } %>
+</div>
